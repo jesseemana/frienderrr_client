@@ -1,4 +1,4 @@
-import {Route, Navigate, Routes} from "react-router-dom"
+import { Route, Navigate, Routes } from "react-router-dom"
 import HomePage from "./pages/homePage/Index"
 import LoginPage from "./pages/loginPage"
 import ProfilePage from "./pages/profilePage"
@@ -11,8 +11,8 @@ import { themeSettings } from "./theme"
 
 
 function App() {
-  const mode = useSelector((state) => state.mode);
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const mode = useSelector((state) => state.mode) // GRABBING MAIN APP THEME FROM STORE 
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]) // SETTING APP THEM ONCE
 
 
   return (
