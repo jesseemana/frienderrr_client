@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 import {BrowserRouter as Router} from 'react-router-dom'
-import {configureStore} from "@reduxjs/toolkit"
 
+import {configureStore} from "@reduxjs/toolkit"
 import {Provider} from 'react-redux'
 import authReducer from './state/index'
 
