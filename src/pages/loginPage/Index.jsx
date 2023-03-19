@@ -15,7 +15,7 @@ function LoginPage() {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Sociopedia
+          frienderrr.
         </Typography>
       </Box>
 
@@ -23,11 +23,11 @@ function LoginPage() {
         width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem"
         m="2rem auto"
-        borderRadius="1.5rem"
+        borderRadius="0.5rem"
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Welcome to Socipedia, the Social Media for Sociopaths!
+          Welcome to Frienderrr, the Social Media for you!
         </Typography>
         <Form />
       </Box>
