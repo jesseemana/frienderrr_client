@@ -1,10 +1,15 @@
 import {Box} from '@mui/material'
 import Navbar from '../navbar/Navbar'
 
+
+
+
 function HomePage(){
-    return <Box>
+    return (
+      <Box>
         <Navbar />
-    </Box>
+      </Box>
+    );
 }
 
 export default HomePage

@@ -71,6 +71,7 @@ function Form() {
 
     // values props is what we pass to the function, onSubMitProps is built into formik
     async function register(values, onSubmitProps) {
+      try {
         const formData = new formData(); // built into JS for submiting forms with pictures 
 
         for(let value in values) {
@@ -93,12 +94,16 @@ function Form() {
         if(savedUser) {
             setPageType('login');
         }
+      } catch (error) {
+        console.log(`An error ocured: ${error}`)
+      }
     }
     
 
 
     async function login(values, onSubmitProps) {
-        const loggedInResponse = await fetch(
+      try {
+          const loggedInResponse = await fetch(
             'http://localhost:8000/auth/login',
             {
                 method: "POST",
@@ -119,11 +124,14 @@ function Form() {
             )
             navigate('/home')
         }
+      } catch(error) {
+        console.log(`An error ocured: ${error}`)
+        }
     }
 
 
 
-    const handleFormSubmit = async (values, onSubmitProps) => {
+    async function handleFormSubmit (values, onSubmitProps) {
         if(isLogin) await login(values, onSubmitProps);
         if(isRegister) await register(values, onSubmitProps);
     }
@@ -242,7 +250,7 @@ function Form() {
               value={values.email}
               name="email"
               error={Boolean(touched.email) && Boolean(errors.email)}
-              helperText={touched.email && errors.email}
+              // helperText={touched.email && errors.email}
               sx={{ gridColumn: "span 4" }}
             />
             <TextField
@@ -253,7 +261,7 @@ function Form() {
               value={values.password}
               name="password"
               error={Boolean(touched.password) && Boolean(errors.password)}
-              helperText={touched.password && errors.password}
+              // helperText={touched.password && errors.password}
               sx={{ gridColumn: "span 4" }}
             />
           </Box>
