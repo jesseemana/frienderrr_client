@@ -97,36 +97,35 @@ function Form() {
       } catch (error) {
         console.log(`An error ocured: ${error}`)
       }
-    }
-    
+  }
 
 
-    async function login(values, onSubmitProps) {
+
+  async function login(values, onSubmitProps) {
       try {
-          const loggedInResponse = await fetch(
-            'http://localhost:8000/auth/login',
-            {
+          const loggedInResponse = await fetch('http://localhost:8000/auth/login', {
                 method: "POST",
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json'},
                 body: JSON.stringify(values)
-            }
-        );
+            });
 
-        const loggedIn = loggedInResponse.json()
+        const loggedIn = await loggedInResponse.json()
         onSubmitProps.resetForm()
+
+        // console.log(loggedIn)
 
         if(loggedIn) {
             dispatch(
                 setLogin({
                     user: loggedIn.user,
-                    token: loggedIn.token
+                    token: loggedIn.accessToken
                 })
             )
             navigate('/home')
         }
-      } catch(error) {
+      } catch(error){
         console.log(`An error ocured: ${error}`)
-        }
+      }
     }
 
 
