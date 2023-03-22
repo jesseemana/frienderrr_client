@@ -43,8 +43,8 @@ const Navbar = () => {
   const alt = theme.palette.background.alt
 
 
-  // const fullName = `${user.firstName} ${user.lastName}`
-  const fullName = `Jesse Emana`
+  const fullName = `${user.firstName} ${user.lastName}`
+  // const fullName = `Jesse Emana`
   
 
   return (
@@ -64,6 +64,7 @@ const Navbar = () => {
         >
           frienderrr.
         </Typography>
+        
         {isNonMobileScreens && (
           <FlexBetween
             backgroundColor={neutralLight}
