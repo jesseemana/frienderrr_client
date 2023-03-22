@@ -3,8 +3,8 @@ import { useSelector } from "react-redux"
 import Navbar from "../navbar/Navbar"
 import UserWidget from "../widgets/UserWidget"
 import MyPostWidget from "../widgets/MyPostWidget"
-// import PostsWidget from "scenes/widgets/PostsWidget"
-// import AdvertWidget from "scenes/widgets/AdvertWidget"
+import PostsWidget from "../widgets/PostsWidget"
+import AdvertWidget from "../widgets/AdvertWidget"
 // import FriendListWidget from "scenes/widgets/FriendListWidget"
 
 
@@ -32,12 +32,12 @@ const HomePage = () => {
           mt={isNonMobileScreens ? undefined : "2rem"}
         >
           <MyPostWidget picturePath={picturePath} />
-          {/* <PostsWidget userId={_id} /> */}
+          <PostsWidget userId={_id} />
         </Box>
 
         {isNonMobileScreens && (
           <Box flexBasis="26%">
-            {/* <AdvertWidget /> */}
+            <AdvertWidget />
             <Box m="2rem 0" />
             {/* <FriendListWidget userId={_id} /> */}
           </Box>

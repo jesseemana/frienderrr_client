@@ -25,31 +25,32 @@ const PostWidget = ({
   likes,
   comments,
 }) => {
-  const [isComments, setIsComments] = useState(false)
-  const dispatch = useDispatch()
-  const token = useSelector((state) => state.token)
-  const loggedInUserId = useSelector((state) => state.user._id)
-  const isLiked = Boolean(likes[loggedInUserId])
-  const likeCount = Object.keys(likes).length
+    const [isComments, setIsComments] = useState(false)
+    const dispatch = useDispatch()
+    const token = useSelector((state) => state.token);
+    const loggedInUserId = useSelector((state) => state.user._id)
+    
+    const isLiked = Boolean(likes[loggedInUserId])
+    const likeCount = Object.keys(likes).length
 
     
-  const { palette } = useTheme()
-  const main = palette.neutral.main
-  const primary = palette.primary.main
+    const { palette } = useTheme()
+    const main = palette.neutral.main
+    const primary = palette.primary.main
     
     
-  const patchLike = async () => {
-    const response = await fetch(`http://localhost:8000/posts/${postId}/like`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId: loggedInUserId }),
-    })
-    const updatedPost = await response.json()
-    dispatch(setPost({ post: updatedPost }))
-  }
+    const patchLike = async () => {
+        const response = await fetch(`http://localhost:8000/posts/${postId}/like`, {
+            method: "PATCH",
+            headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+            body: JSON.stringify({ userId: loggedInUserId }),
+        })
+        const updatedPost = await response.json()
+        dispatch(setPost({ post: updatedPost }))
+    }
 
     
   return (
@@ -70,7 +71,7 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          src={`http://localhost:3001/assets/${picturePath}`}
+          src={`http://localhost:8000/assets/${picturePath}`}
         />
        )}
           
