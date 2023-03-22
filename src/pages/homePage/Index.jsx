@@ -4,8 +4,8 @@ import Navbar from "../navbar/Navbar"
 import UserWidget from "../widgets/UserWidget"
 import MyPostWidget from "../widgets/MyPostWidget"
 import PostsWidget from "../widgets/PostsWidget"
-import AdvertWidget from "../widgets/AdvertWidget"
-// import FriendListWidget from "scenes/widgets/FriendListWidget"
+import AdvertsWidget from "../widgets/AdvertsWidget"
+import FriendListWidget from "../widgets/FriendListWidget"
 
 
 
@@ -37,9 +37,9 @@ const HomePage = () => {
 
         {isNonMobileScreens && (
           <Box flexBasis="26%">
-            <AdvertWidget />
+            <AdvertsWidget />
             <Box m="2rem 0" />
-            {/* <FriendListWidget userId={_id} /> */}
+            <FriendListWidget userId={_id} />
           </Box>
         )}
       </Box>
